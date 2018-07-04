@@ -103,5 +103,9 @@ print(count)
 pprint.pprint(someDictionaryValue)
 print(pprint.pformat(someDictionaryValue))
 ```
-
+##### 打印参考文档
+1、[Python 3 print 函数用法总结](http://www.runoob.com/w3cnote/python3-print-func-b.html)<br>
+2、[Python 打印和输出](https://blog.csdn.net/liang19890820/article/details/72887227)<br>
+3、[python2的print和python3的print()](https://www.cnblogs.com/kaitoex/p/6085606.html)<br>
+4、[python 中 print 函数用法总结](https://blog.csdn.net/xuhaikun123/article/details/54646141)<br>
 
