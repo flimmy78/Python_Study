@@ -1,7 +1,10 @@
-### 参考文档
+### 字符串处理参考文档
 1、[python常用的十进制、16进制、字符串、字节串之间的转换（长期更新帖）](https://blog.csdn.net/crylearner/article/details/38521685)<br>
 2、[Python中struct.pack()和struct.unpack()用法详细说明](http://www.php.cn/python-tutorials-356984.html)<br>
 3、[字符串和编码](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431664106267f12e9bef7ee14cf6a8776a479bdec9b9000)<br>
+### 正则表达式参考文档
+1、[Python中正则表达式的详细教程](https://www.jb51.net/article/65286.htm)<br>
+2、[Python正则表达式指南](https://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html)<br>
 ### 一、列表
 #### 1.1 列表类型
 列表值看起来像这样： ['cat', 'bat', 'rat', 'elephant']。就像字符串值用引号来标记字符串的起止一样， 列表用左方括号开始，右方括号结束，即`[]`。<br>
@@ -155,4 +158,26 @@ print(pprint.pformat(someDictionaryValue))
 #### 6.11 用 pyperclip 模块拷贝粘贴字符串
 pyperclip 模块有 copy()和 paste()函数， 可以向计算机的剪贴板发送文本，或从它接收文本。
 
-
+### 正则表达式
+#### 匹配符
+`?`匹配零次或一次前面的分组。
+`*`匹配零次或多次前面的分组。
+`+`匹配一次或多次前面的分组。
+`{n}`匹配 n 次前面的分组。
+`{n,}`匹配 n 次或更多前面的分组。
+`{,m}`匹配零次到 m 次前面的分组。
+`{n,m}`匹配至少 n 次、至多 m 次前面的分组。
+`{n,m}?`或`*?`或`+?`对前面的分组进行非贪心匹配。
+`^spam`意味着字符串必须以 spam 开始。
+`spam$`意味着字符串必须以 spam 结束。
+`.`匹配所有字符，换行符除外。
+`\d、\w 和\s `分别匹配数字、单词和空格。
+`\D、\W 和\S `分别匹配出数字、单词和空格外的所有字符。
+`[abc]`匹配方括号内的任意字符（诸如 a、 b 或 c）。
+`[^abc]`匹配不在方括号内的任意字符。
+#### 不区分大小写的匹配
+向 re.compile()传入`re.IGNORECASE 或 re.I`，作为第二个参数。
+#### 忽略正则表达式字符串中的空白符和注释
+向 re.compile()传入`re.VERBOSE`， 作为第二个参数。
+#### 点-星(`.*`)将匹配除换行外的所有字符
+向 re.compile()传入`re.DOTALL`，作为 re.compile()的第二个参数， 可以让`.*`匹配所有字符，包括换行字符
