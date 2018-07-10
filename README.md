@@ -181,5 +181,64 @@ pyperclip 模块有 copy()和 paste()函数， 可以向计算机的剪贴板发
 向 re.compile()传入`re.VERBOSE`， 作为第二个参数。
 #### 7.4 点-星(`.*`)将匹配除换行外的所有字符
 向 re.compile()传入`re.DOTALL`，作为 re.compile()的第二个参数， 可以让`.*`匹配所有字符，包括换行字符
+### 八、读写文件
+#### 8.1 文件与文件路径
+Windows 上的倒斜杠`\`以及 OS X 和 Linux 上的正斜杠`/`，`os.path.join()`就会返回一个文件路径的字符串，包含正确的路径分隔符。在交互式环境中输入以下代码：
+```
+>>> import os
+>>> os.path.join('usr', 'bin', 'spam')
+'usr\\bin\\spam'
+```
+__请注意__，倒斜杠有两个，因为每个倒斜杠需要由另一个倒斜杠字符来转义。如果我在 OS X 或 Linux 上调用这个函数， 该字符串就会是`'usr/bin/spam'`。
+#### 8.2 当前工作目录
+利用`os.getcwd()`函数，可以取得当前工作路径的字符串，并可以利用`os.chdir()`改变它。
+#### 8.3 创建新文件夹
+用`os.makedirs()`可以创建新文件夹。
+#### 8.4 os.path 模块
+* 调用`os.path.abspath(path)`将返回参数的绝对路径的字符串。这是将相对路径转换为绝对路径的简便方法。
+* 调用`os.path.isabs(path)`，如果参数是一个绝对路径，就返回 True，如果参数是一个相对路径，就返回 False。
+* 调用`os.path.relpath(path, start)`将返回从 start 路径到 path 的相对路径的字符串。如果没有提供 start，就使用当前工作目录作为开始路径。
+* 调用`os.path.dirname(path)`将返回一个字符串，它包含 path 参数中最后一个斜杠`之前`的所有内容(可以理解为文件路径)。
+* 调用`os.path.basename(path)`将返回一个字符串，它包含 path 参数中最后一个斜杠`之后`的所有内容(可以理解为文件名)。
+* 调用`os.path.split()`，如果同时需要一个路径的目录名称和基本名称， 就可以调用 os.path.split()，获得这两个字符串的元组。
+* `os.path.split()`不会接受一个文件路径并返回每个文件夹的字符串的列表。如果需要这样，请使用 split()字符串方法，并根据 os.path.sep 中的字符串进行分割。
+```
+>>> calcFilePath = 'C:\\Windows\\System32\\calc.exe'
+>>> os.path.split(calcFilePath)
+('C:\\Windows\\System32', 'calc.exe')
+>>> (os.path.dirname(calcFilePath), os.path.basename(calcFilePath))
+('C:\\Windows\\System32', 'calc.exe')
+>>> calcFilePath.split(os.path.sep)
+['C:', 'Windows', 'System32', 'calc.exe']
+```
+* 调用`os.path.getsize(path)`将返回 path 参数中文件的字节数。
+* 调用`os.listdir(path)`将返回文件名字符串的列表，包含 path 参数中的每个文件（请注意，这个函数在 os 模块中，而不是 os.path）。
+##### 8.4.1 检查路径有效性
+* 如果 path 参数所指的文件或文件夹存在， 调用`os.path.exists(path)`将返回 True，否则返回 False。
+* 如果 path 参数存在，并且是一个文件， 调用`os.path.isfile(path)`将返回 True， 否则返回 False。
+* 如果 path 参数存在， 并且是一个文件夹， 调用`os.path.isdir(path)`将返回 True，否则返回 False。
+#### 8.5 用 shelve 模块保存变量
+利用` shelve `模块， 你可以将 Python 程序中的变量保存到二进制的` shelf 文件`中。这样， 程序就可以从硬盘中恢复变量的数据。 shelve 模块让你在程序中添加“保存”和“打开” 功能。
+```
+>>> import shelve
+>>> shelfFile = shelve.open('mydata')
+>>> cats = ['Zophie', 'Pooka', 'Simon']
+>>> shelfFile['cats'] = cats
+>>> shelfFile.close()
+```
+读取保存的变量
+```
+>>> shelfFile = shelve.open('mydata')
+>>> type(shelfFile)
+<class 'shelve.DbfilenameShelf'>
+>>> shelfFile['cats']
+['Zophie', 'Pooka', 'Simon']
+>>> shelfFile.close()
+```
+
+
+
+
+
 
 
