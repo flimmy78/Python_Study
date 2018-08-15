@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>中石油配置文件修改</title>
+    <style>
+        #b{
+            width: 30%;
+			float:left;
+			line-height:25px;
+			padding:5px;
+        }
+		#c{			
+            width: 35%;			   
+        }
+		#d{			
+            width: 20%;			   
+        }
+		#b,#c,#d{
+			display: inline-block;
+		}
+    </style>
+</head>
+<body>
+	<!--script type="text/javascript" src="jquery.js"></script-->  
+    <script type="text/javascript"> 
+	function myFunction(){
+	   alert(document.getElementById("IFSF_Node").value);
+	}
+	function checkboxOnclick(){		
+		if(document.getElementById("Gun_Info2").checked==true){
+			document.getElementById("Gun_Info2_display").style.display = "block";
+		}else{
+			document.getElementById("Gun_Info2_display").style.display = "none";
+		}
+		
+		if(document.getElementById("Gun_Info3").checked==true){
+			document.getElementById("Gun_Info3_display").style.display = "block";
+		}else{
+			document.getElementById("Gun_Info3_display").style.display = "none";
+		}
+		
+		if(document.getElementById("Gun_Info4").checked==true){
+			document.getElementById("Gun_Info4_display").style.display = "block";
+		}else{
+			document.getElementById("Gun_Info4_display").style.display = "none";
+		}
+		
+	}
+	</script>
+	<noscript>抱歉，你的浏览器不支持 JavaScript!</noscript>
+	<form action="/cgi-bin/inifile.py" method="get">			
+			<div id="b">	
+				<b>[FS_EPS]:</b><br><br>	
+				<div id="c">FS 节点:</div><input type="text" name="IFSF_Node" class="a"  value=""><br>				
+				<div id="c">FS IP:</div><input type="text" name="FS_IP" class="a"  value=""><br>	
+				<div id="c">FS TCP端口号:</div><input type="text" name="FS_Port" class="a"  value=""><br>				
+				<div id="c">FS UDP端口号:</div><input type="text" name="FS_Udp_Port" class="a"  value=""><br>
+				<div id="c">FS 本机TCP端口号 :</div><input type="text" name="My_FS_Port" class="a"  value=""><br>				
+				<div id="c">EPS IP:</div><input type="text" name="EPS_IP" class="a"  value=""><br>
+				<div id="c">EPS 端口号:</div><input type="text" name="EPS_Port" class="a"  value=""><br>				
+				<div id="c">FS 心跳间隔:</div><input type="text" name="Time_Out" class="a"  value=""><br>
+				<div id="c">FS 重连间隔:</div><input type="text" name="Time_Reconnect" class="a"  value=""><br>				
+				<div id="c">OPT超时时间:</div><input type="text" name="OPT_IS_Online" class="a"  value=""><br>				
+			</div>		
+			<div id="b">
+				<b>[Board_Info]:</b><br><br>
+				<div id="c">本机IP:</div><input type="text" name="My_IP" class="a" id="" value=""><br>
+				<div id="c">本机EPS服务端口:</div><input type="text" name="My_EPS_Port" class="a" id="" value=""><br>		
+				<div id="c">本机掩码:</div><input type="text" name="My_Mask" class="a"  value=""><br>
+				<div id="c">本机网关:</div><input type="text" name="My_Gateway" class="a"  value=""><br>				
+				<div id="c">本机广播地址:</div><input type="text" name="My_Broadcast_IP" class="a"  value=""><br>
+				<div id="c">本机广播端口:</div><input type="text" name="My_Broadcast_Port" class="a"  value=""><br>				
+				<div id="c">心跳灯使能:</div><input type="text" name="Led_ON" class="a"  value=""><br>				
+			</div>
+			<div id="b">
+				<b>[Gun_Info1]:</b><br><br>
+				<div id="d">枪号:</div><input type="text" name="Gun_num" class="a" id="" value=""><br>
+				<div id="d">节点号:</div><input type="text" name="My_Node" class="a" id="" value=""><br>		
+				<div id="d">单价版本号:</div><input type="text" name="Pri_Ver" class="a"  value=""><br>
+				<div id="d">单价:</div><input type="text" name="price" class="a"  value=""><br>								
+				<div id="d">油品代码:</div><input type="text" name="oilcode" class="a"  value=""><br>
+				<div id="d">串口号:</div><input type="text" name="Uart_NO" class="a"  value=""><br>				
+				<div id="d">波特率:</div><input type="text" name="Uart_Speed" class="a"  value=""><br>
+				<div id="d">数据位:</div><input type="text" name="Uart_Data_Bits" class="a"  value=""><br>
+				<div id="d">停止位:</div><input type="text" name="Uart_Stop_Bits" class="a"  value=""><br>				
+				<div id="d">校验位:</div><input type="text" name="Uart_Parity" class="a"  value=""><br>
+			</div>	
+			
+		
+			<div id="b">
+			<b><input type="checkbox" name="Gun_Info2" value="[Gun_Info2]" id="Gun_Info2" onclick="checkboxOnclick()" "/>[Gun_Info2]:</b><br>
+				<label id="Gun_Info2_display" style="display:none;">
+					<div id="c">枪号:</div><input type="text" name="Gun_num2" class="a" id="" value=""><br>
+					<div id="c">节点号:</div><input type="text" name="My_Node2" class="a" id="" value=""><br>		
+					<div id="c">单价版本号:</div><input type="text" name="Pri_Ver2" class="a"  value=""><br>
+					<div id="c">单价:</div><input type="text" name="price2" class="a"  value=""><br>				
+					<div id="c">油品代码:</div><input type="text" name="oilcode2" class="a"  value=""><br>
+					<div id="c">串口号:</div><input type="text" name="Uart_NO2" class="a"  value=""><br>				
+					<div id="c">波特率:</div><input type="text" name="Uart_Speed2" class="a"  value=""><br>
+					<div id="c">数据位:</div><input type="text" name="Uart_Data_Bits2" class="a"  value=""><br>
+					<div id="c">停止位:</div><input type="text" name="Uart_Stop_Bits2" class="a"  value=""><br>				
+					<div id="c">校验位:</div><input type="text" name="Uart_Parity2" class="a"  value=""><br>
+				</label>
+			</div>
+		
+			<div id="b">
+			<b><input type="checkbox" name="Gun_Info3" value="[Gun_Info3]" id="Gun_Info3" onclick="checkboxOnclick()" "/>[Gun_Info3]:</b><br>
+				<label id="Gun_Info3_display" style="display:none;">
+					<div id="c">枪号:</div><input type="text" name="Gun_num3" class="a" id="" value=""><br>
+					<div id="c">节点号:</div><input type="text" name="My_Node3" class="a" id="" value=""><br>		
+					<div id="c">单价版本号:</div><input type="text" name="Pri_Ver3" class="a"  value=""><br>
+					<div id="c">单价:</div><input type="text" name="price3" class="a"  value=""><br>				
+					<div id="c">油品代码:</div><input type="text" name="oilcode3" class="a"  value=""><br>
+					<div id="c">串口号:</div><input type="text" name="Uart_NO3" class="a"  value=""><br>				
+					<div id="c">波特率:</div><input type="text" name="Uart_Speed3" class="a"  value=""><br>
+					<div id="c">数据位:</div><input type="text" name="Uart_Data_Bits3" class="a"  value=""><br>
+					<div id="c">停止位:</div><input type="text" name="Uart_Stop_Bits3" class="a"  value=""><br>				
+					<div id="c">校验位:</div><input type="text" name="Uart_Parity3" class="a"  value=""><br>
+				</label>
+			</div>
+		
+			<div id="b">
+			<b><input type="checkbox" name="Gun_Info4" value="[Gun_Info4]" id="Gun_Info4" onclick="checkboxOnclick()" "/>[Gun_Info4]:</b><br>
+				<label id="Gun_Info4_display" style="display:none;">
+					<div id="d">枪号:</div><input type="text" name="Gun_num4" class="a" id="" value=""><br>
+					<div id="d">节点号:</div><input type="text" name="My_Node4" class="a" id="" value=""><br>		
+					<div id="d">单价版本号:</div><input type="text" name="Pri_Ver4" class="a"  value=""><br>
+					<div id="d">单价:</div><input type="text" name="price4" class="a"  value=""><br>				
+					<div id="d">油品代码:</div><input type="text" name="oilcode4" class="a"  value=""><br>
+					<div id="d">串口号:</div><input type="text" name="Uart_NO4" class="a"  value=""><br>				
+					<div id="d">波特率:</div><input type="text" name="Uart_Speed4" class="a"  value=""><br>
+					<div id="d">数据位:</div><input type="text" name="Uart_Data_Bits4" class="a"  value=""><br>
+					<div id="d">停止位:</div><input type="text" name="Uart_Stop_Bits4" class="a"  value=""><br>				
+					<div id="d">校验位:</div><input type="text" name="Uart_Parity4" class="a"  value=""><br>
+				</label>
+			</div>
+		<p>
+		<!--button type="button" onclick="myFunction()">读取</button--> 
+		<button type="button" onclick="window.location.href='./cgi-bin/readinifile.py'">读取</button>
+		<input type="submit" value="提交" /> 
+		</p>
+	</form>   
+</body>
+</html>
