@@ -5,9 +5,9 @@
 #!/bin/sh 
 rm config.site
 echo ac_cv_file__dev_ptmx=yes >> config.site 
-echo ac_cv_file__dev_ptc=no >> config.site 
+echo ac_cv_file__dev_ptc=yes >> config.site 
 export CONFIG_SITE=config.site
-./configure CC=/opt/arm-2009q3-4.4.1/bin/arm-none-linux-gnueabi-gcc CXX=/opt/arm-2009q3-4.4.1/bin/arm-none-linux-gnueabi-g++ AR=/opt/arm-2009q3-4.4.1/bin/arm-none-linux-gnueabi-ar RANLIB=/opt/arm-2009q3-4.4.1/bin/arm-none-linux-gnueabi-ranlib READELF=/opt/arm-2009q3-4.4.1/bin/arm-none-linux-gnueabi-readelf --host=arm-none-linux --build=i686-linux --disable-ipv6
+./configure CC=/opt/arm-2009q3-4.4.1/bin/arm-none-linux-gnueabi-gcc CXX=/opt/arm-2009q3-4.4.1/bin/arm-none-linux-gnueabi-g++ AR=/opt/arm-2009q3-4.4.1/bin/arm-none-linux-gnueabi-ar RANLIB=/opt/arm-2009q3-4.4.1/bin/arm-none-linux-gnueabi-ranlib READELF=/opt/arm-2009q3-4.4.1/bin/arm-none-linux-gnueabi-readelf --host=arm-none-linux --disable-ipv6 --build=i686-linux-gnu --prefix=/opt/python/Python-3.4.3/build --silent --target=arm-none-linux-gnueabi --enable-shared
 ```
 根据交叉编译器具体位置进行修改。
 ### 3、此时如直接编译会导致很多模块没有进行交叉编译，需要修改`setup.py`
@@ -18,9 +18,10 @@ export CONFIG_SITE=config.site
 		#    self.extensions.remove(ext)
 
 ```
-### 4、此时可以`make`生成python，生成后再`strip`一下
-### 5、拷贝python可执行文件到目标arm板，以及相应的库文件和模块文件
-### 6、设置`PYTHONHOME`以及`PYTHONPATH`环境变量
+#### 3.1修改`Modules/Setup`文件，主要打开`zlib模块`和`readline模块`	
+### 4、此时可以`make&make install`
+### 5、拷贝`build`文件夹下面的`bin`,`lib`,`include`三个文件夹到目标arm板下的`/usr`文件夹下
+### 6、若路径完全正确，则可以跳过这一步，(设置`PYTHONHOME`以及`PYTHONPATH`环境变量)
 参考：
 ```
 export PYTHONHOME=/usr/lib
