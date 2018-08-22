@@ -21,7 +21,7 @@ header = 'Content-Type: text/html\n\n'
 debug = '''
 <HTML><HEAD><TITLE>
 Debug</TITLE></HEAD>
-<BODY> %s
+<BODY>%s
 </BODY></HTML>
 '''
 conf=myconf()

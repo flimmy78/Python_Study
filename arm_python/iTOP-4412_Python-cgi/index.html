@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>中石油配置文件修改</title>
+    <style>
+        #b{
+            width: 30%;
+			float:left;
+			line-height:25px;
+			padding:5px;
+        }
+		#c{			
+            width: 35%;	
+			//text-align:right;	
+			//margin-right:5px;			
+        }
+		#d{			
+            width: 25%;	
+			//text-align:right;			
+        }
+		#e{			
+            width: 30%;	
+			//text-align:right;			
+        }
+        /*
+		#b,#c,#d{
+			display: inline-block;
+		}
+        */
+		#footer {
+			width: 76%;
+			height:100px;   /* footer的高度一定要是固定值*/ 
+			text-align:right;	
+			position:relative;
+			bottom:0;				
+		}
+		
+		#button_read{
+			margin:10px;
+		}
+		#button_submit{
+			margin:0px;			
+		}
+		#b,#c,#d,#e,#footer,#button_read,#button_submit{
+			display: inline-block;
+		}
+    </style>
+</head>
+<body>
+	<!--script type="text/javascript" src="jquery.js"></script-->  
+    <script type="text/javascript"> 
+	function myFunction(){
+	   alert(document.getElementById("IFSF_Node").value);
+	}
+	function checkboxOnclick(){	/*检查是否选中，若没有选中，则不显示相关信息*/	
+		if(document.getElementById("Gun_Info2").checked==true){
+			document.getElementById("Gun_Info2_display").style.display = "block";			
+		}else{
+			document.getElementById("Gun_Info2_display").style.display = "none";
+		}	
+	
+		if(document.getElementById("Gun_Info3").checked==true){
+			document.getElementById("Gun_Info3_display").style.display = "block";			
+		}else{
+			document.getElementById("Gun_Info3_display").style.display = "none";			
+		}
+	
+		if(document.getElementById("Gun_Info4").checked==true){
+			document.getElementById("Gun_Info4_display").style.display = "block";			
+		}else{
+			document.getElementById("Gun_Info4_display").style.display = "none";			
+		}
+	}
+	function checkForm(){/*submit时被调用，没选中的CheckBox则让其失效*/
+		if(document.getElementById("Gun_Info2").checked==true){			
+			document.getElementById("Gun_Info2").disabled=false;
+			document.getElementById("Gun_num2").disabled=false;
+			document.getElementById("My_Node2").disabled=false;
+			document.getElementById("Pri_Ver2").disabled=false;
+			document.getElementById("price2").disabled=false;
+			document.getElementById("oilcode2").disabled=false;
+			document.getElementById("Uart_NO2").disabled=false;
+			document.getElementById("Uart_Speed2").disabled=false;
+			document.getElementById("Uart_Data_Bits2").disabled=false;
+			document.getElementById("Uart_Stop_Bits2").disabled=false;
+			document.getElementById("Uart_Parity2").disabled=false;			
+		}else{			
+			document.getElementById("Gun_Info2").disabled=true;
+			document.getElementById("Gun_num2").disabled=true;
+			document.getElementById("My_Node2").disabled=true;
+			document.getElementById("Pri_Ver2").disabled=true;
+			document.getElementById("price2").disabled=true;
+			document.getElementById("oilcode2").disabled=true;
+			document.getElementById("Uart_NO2").disabled=true;
+			document.getElementById("Uart_Speed2").disabled=true;
+			document.getElementById("Uart_Data_Bits2").disabled=true;
+			document.getElementById("Uart_Stop_Bits2").disabled=true;
+			document.getElementById("Uart_Parity2").disabled=true;	
+		}	
+	
+		if(document.getElementById("Gun_Info3").checked==true){			
+			document.getElementById("Gun_Info3").disabled=false;
+			document.getElementById("Gun_num3").disabled=false;
+			document.getElementById("My_Node3").disabled=false;
+			document.getElementById("Pri_Ver3").disabled=false;
+			document.getElementById("price3").disabled=false;
+			document.getElementById("oilcode3").disabled=false;
+			document.getElementById("Uart_NO3").disabled=false;
+			document.getElementById("Uart_Speed3").disabled=false;
+			document.getElementById("Uart_Data_Bits3").disabled=false;
+			document.getElementById("Uart_Stop_Bits3").disabled=false;
+			document.getElementById("Uart_Parity3").disabled=false;	
+		}else{			
+			document.getElementById("Gun_Info3").disabled=true;
+			document.getElementById("Gun_num3").disabled=true;
+			document.getElementById("My_Node3").disabled=true;
+			document.getElementById("Pri_Ver3").disabled=true;
+			document.getElementById("price3").disabled=true;
+			document.getElementById("oilcode3").disabled=true;
+			document.getElementById("Uart_NO3").disabled=true;
+			document.getElementById("Uart_Speed3").disabled=true;
+			document.getElementById("Uart_Data_Bits3").disabled=true;
+			document.getElementById("Uart_Stop_Bits3").disabled=true;
+			document.getElementById("Uart_Parity3").disabled=true;	
+		}
+	
+		if(document.getElementById("Gun_Info4").checked==true){			
+			document.getElementById("Gun_Info4").disabled=false;
+			document.getElementById("Gun_num4").disabled=false;
+			document.getElementById("My_Node4").disabled=false;
+			document.getElementById("Pri_Ver4").disabled=false;
+			document.getElementById("price4").disabled=false;
+			document.getElementById("oilcode4").disabled=false;
+			document.getElementById("Uart_NO4").disabled=false;
+			document.getElementById("Uart_Speed4").disabled=false;
+			document.getElementById("Uart_Data_Bits4").disabled=false;
+			document.getElementById("Uart_Stop_Bits4").disabled=false;
+			document.getElementById("Uart_Parity4").disabled=false;	
+		}else{			
+			document.getElementById("Gun_Info4").disabled=true;
+			document.getElementById("Gun_num4").disabled=true;
+			document.getElementById("My_Node4").disabled=true;
+			document.getElementById("Pri_Ver4").disabled=true;
+			document.getElementById("price4").disabled=true;
+			document.getElementById("oilcode4").disabled=true;
+			document.getElementById("Uart_NO4").disabled=true;
+			document.getElementById("Uart_Speed4").disabled=true;
+			document.getElementById("Uart_Data_Bits4").disabled=true;
+			document.getElementById("Uart_Stop_Bits4").disabled=true;
+			document.getElementById("Uart_Parity4").disabled=true;	
+		}
+	}
+	</script>
+	<noscript>抱歉，你的浏览器不支持 JavaScript!</noscript>
+	<form action="/cgi-bin/inifile.py" onsubmit="checkForm()" method="get">			
+			<div id="b">	
+				<b>[FS_EPS]设置:</b><br>	
+				<div id="e">FS 节点:</div><input type="text" name="IFSF_Node" class="a"  value=""><br>				
+				<div id="e">FS IP:</div><input type="text" name="FS_IP" class="a"  value=""><br>	
+				<div id="e">FS TCP端口号:</div><input type="text" name="FS_Port" class="a"  value=""><br>				
+				<div id="e">FS UDP端口号:</div><input type="text" name="FS_Udp_Port" class="a"  value=""><br>								
+				<div id="e">EPS IP:</div><input type="text" name="EPS_IP" class="a"  value=""><br>
+				<div id="e">EPS 端口号:</div><input type="text" name="EPS_Port" class="a"  value=""><br>				
+				<div id="e">FS 心跳间隔:</div><input type="text" name="Time_Out" class="a"  value=""><br>
+				<div id="e">FS 重连间隔:</div><input type="text" name="Time_Reconnect" class="a"  value=""><br>				
+				<div id="e">OPT超时时间:</div><input type="text" name="OPT_IS_Online" class="a"  value=""><br>				
+			</div>		
+			<div id="b">
+				<b>[Board_Info]设置:</b><br>
+				<div id="c">本机IP:</div><input type="text" name="My_IP" class="a" id="" value=""><br>
+				<div id="c">本机TCP服务端口 :</div><input type="text" name="My_FS_Port" class="a"  value=""><br>
+				<div id="c">本机EPS服务端口:</div><input type="text" name="My_EPS_Port" class="a" id="" value=""><br>		
+				<div id="c">本机掩码:</div><input type="text" name="My_Mask" class="a"  value=""><br>
+				<div id="c">本机网关:</div><input type="text" name="My_Gateway" class="a"  value=""><br>				
+				<div id="c">本机广播地址:</div><input type="text" name="My_Broadcast_IP" class="a"  value=""><br>
+				<div id="c">本机广播端口:</div><input type="text" name="My_Broadcast_Port" class="a"  value=""><br>				
+				<div id="c">心跳灯使能:</div>
+					<select name="Led_ON">        <!--下拉列表框-->							
+							<option value="0">0(禁止)</option>
+							<option value="1" selected="selected">1(使能)</option>							
+					</select>
+				<!--input type="text" name="Led_ON" class="a"  value=""--><br>				
+			</div>
+			<div id="b">
+				<b>[Gun_Info1]设置:</b><br>
+				<div id="d">枪号:</div><input type="text" name="Gun_num" class="a" id="" value=""><br>
+				<div id="d">节点号:</div><input type="text" name="My_Node" class="a" id="" value=""><br>		
+				<div id="d">单价版本号:</div><input type="text" name="Pri_Ver" class="a"  value=""><br>
+				<div id="d">单价:</div><input type="text" name="price" class="a"  value=""><br>								
+				<div id="d">油品代码:</div><input type="text" name="oilcode" class="a"  value=""><br>
+				<div id="d">串口号:</div>
+					<select name="Uart_NO">        <!--下拉列表框-->
+							<option value="/dev/ttyO1" selected="selected">/dev/ttyO1</option>
+							<option value="/dev/ttyO2">/dev/ttyO2</option>
+							<option value="/dev/ttyO3">/dev/ttyO3</option>
+							<option value="/dev/ttyO4">/dev/ttyO4</option>
+					</select>
+				<!--input type="text" name="Uart_NO" class="a"  value=""--><br>				
+				
+				<div id="d">波特率:</div>
+					<select name="Uart_Speed">        <!--下拉列表框-->
+							<option value="9600" >9600</option>
+							<option value="19200">19200</option>
+							<option value="38400" selected="selected">38400</option>
+							<option value="115200">115200</option>
+					</select>
+				<!--input type="text" name="Uart_Speed" class="a"  value=""--><br>
+				<div id="d">数据位:</div>
+					<select name="Uart_Data_Bits">        <!--下拉列表框-->							
+							<option value="7">7</option>
+							<option value="8" selected="selected">8</option>							
+					</select>
+				<!--input type="text" name="Uart_Data_Bits" class="a"  value=""--><br>
+				<div id="d">停止位:</div>
+					<select name="Uart_Stop_Bits">        <!--下拉列表框-->							
+							<option value="1" selected="selected">1</option>
+							<option value="2">2</option>							
+					</select>
+				<!--input type="text" name="Uart_Stop_Bits" class="a"  value=""--><br>				
+				<div id="d">校验位:</div>
+					<select name="Uart_Parity">        <!--下拉列表框-->
+							<option value="N" selected="selected">无校验-None</option>
+							<option value="O">奇校验-Odd</option>
+							<option value="E">偶校验-Even</option>							
+					</select>
+				<!--input type="text" name="Uart_Parity" class="a"  value=""--><br><br>
+			</div>	
+			
+		
+			<div id="b">
+			<b><input type="checkbox" name="Gun_Info2" value="[Gun_Info2]" id="Gun_Info2" onclick="checkboxOnclick()" />[Gun_Info2]设置:</b><br>
+				<label id="Gun_Info2_display" style="display:none;">
+					<div id="e">枪号:</div><input type="text" name="Gun_num2" class="a" id="Gun_num2" value=""><br>
+					<div id="e">节点号:</div><input type="text" name="My_Node2" class="a" id="My_Node2" value=""><br>		
+					<div id="e">单价版本号:</div><input type="text" name="Pri_Ver2" class="a" id="Pri_Ver2"  value=""><br>
+					<div id="e">单价:</div><input type="text" name="price2" class="a" id="price2"  value=""><br>				
+					<div id="e">油品代码:</div><input type="text" name="oilcode2" class="a" id="oilcode2" value=""><br>
+					<div id="e">串口号:</div>
+						<select name="Uart_NO2" id="Uart_NO2">        <!--下拉列表框-->
+								<option value="/dev/ttyO1">/dev/ttyO1</option>
+								<option value="/dev/ttyO2" selected="selected">/dev/ttyO2</option>
+								<option value="/dev/ttyO3">/dev/ttyO3</option>
+								<option value="/dev/ttyO4">/dev/ttyO4</option>
+						</select>
+					<!--input type="text" name="Uart_NO2" class="a"  value=""--><br>				
+					
+					<div id="e">波特率:</div>
+						<select name="Uart_Speed2" id="Uart_Speed2">        <!--下拉列表框-->
+								<option value="9600" >9600</option>
+								<option value="19200">19200</option>
+								<option value="38400" selected="selected">38400</option>
+								<option value="115200">115200</option>
+						</select>
+					<!--input type="text" name="Uart_Speed2" class="a"  value=""--><br>
+					<div id="e">数据位:</div>
+						<select name="Uart_Data_Bits2" id="Uart_Data_Bits2">        <!--下拉列表框-->							
+								<option value="7">7</option>
+								<option value="8" selected="selected">8</option>							
+						</select>
+					<!--input type="text" name="Uart_Data_Bits2" class="a"  value=""--><br>
+					<div id="e">停止位:</div>
+						<select name="Uart_Stop_Bits2" id="Uart_Stop_Bits2">        <!--下拉列表框-->							
+								<option value="1" selected="selected">1</option>
+								<option value="2">2</option>							
+						</select>
+					<!--input type="text" name="Uart_Stop_Bits2" class="a"  value=""--><br>				
+					<div id="e">校验位:</div>
+						<select name="Uart_Parity2" id="Uart_Parity2">        <!--下拉列表框-->
+								<option value="N" selected="selected">无校验-None</option>
+								<option value="O">奇校验-Odd</option>
+								<option value="E">偶校验-Even</option>							
+						</select>
+					<!--input type="text" name="Uart_Parity2" class="a"  value=""--><br><br>
+				</label>
+			</div>
+		
+			<div id="b">
+			<b><input type="checkbox" name="Gun_Info3" value="[Gun_Info3]" id="Gun_Info3" onclick="checkboxOnclick()" />[Gun_Info3]设置:</b><br>
+				<label id="Gun_Info3_display" style="display:none;">
+					<div id="c">枪号:</div><input type="text" name="Gun_num3" class="a" id="Gun_num3" value=""><br>
+					<div id="c">节点号:</div><input type="text" name="My_Node3" class="a" id="My_Node3" value=""><br>		
+					<div id="c">单价版本号:</div><input type="text" name="Pri_Ver3" class="a" id="Pri_Ver3" value=""><br>
+					<div id="c">单价:</div><input type="text" name="price3" class="a" id="price3" value=""><br>				
+					<div id="c">油品代码:</div><input type="text" name="oilcode3" class="a" id="oilcode3"  value=""><br>
+					<div id="c">串口号:</div>
+						<select name="Uart_NO3" id="Uart_NO3">        <!--下拉列表框-->
+								<option value="/dev/ttyO1">/dev/ttyO1</option>
+								<option value="/dev/ttyO2">/dev/ttyO2</option>
+								<option value="/dev/ttyO3" selected="selected">/dev/ttyO3</option>
+								<option value="/dev/ttyO4">/dev/ttyO4</option>
+						</select>
+					<!--input type="text" name="Uart_NO3" class="a"  value=""--><br>				
+					
+					<div id="c">波特率:</div>
+						<select name="Uart_Speed3" id="Uart_Speed3">        <!--下拉列表框-->
+								<option value="9600" >9600</option>
+								<option value="19200">19200</option>
+								<option value="38400" selected="selected">38400</option>
+								<option value="115200">115200</option>
+						</select>
+					<!--input type="text" name="Uart_Speed3" class="a"  value=""--><br>
+					<div id="c">数据位:</div >
+						<select name="Uart_Data_Bits3" id="Uart_Data_Bits3">        <!--下拉列表框-->							
+								<option value="7">7</option>
+								<option value="8" selected="selected">8</option>							
+						</select>
+					<!--input type="text" name="Uart_Data_Bits3" class="a"  value=""--><br>
+					<div id="c">停止位:</div>
+						<select name="Uart_Stop_Bits3" id="Uart_Stop_Bits3">        <!--下拉列表框-->							
+								<option value="1" selected="selected">1</option>
+								<option value="2">2</option>							
+						</select>
+					<!--input type="text" name="Uart_Stop_Bits3" class="a"  value=""--><br>				
+					<div id="c">校验位:</div>
+						<select name="Uart_Parity3" id="Uart_Parity3">        <!--下拉列表框-->
+								<option value="N" selected="selected">无校验-None</option>
+								<option value="O">奇校验-Odd</option>
+								<option value="E">偶校验-Even</option>							
+						</select>
+					<!--input type="text" name="Uart_Parity3" class="a"  value=""--><br><br>
+				</label>
+			</div>
+		
+			<div id="b">
+			<b><input type="checkbox" name="Gun_Info4" value="[Gun_Info4]" id="Gun_Info4" onclick="checkboxOnclick()" />[Gun_Info4]设置:</b><br>
+				<label id="Gun_Info4_display" style="display:none;">
+					<div id="d">枪号:</div><input type="text" name="Gun_num4" class="a" id="Gun_num4" value=""><br>
+					<div id="d">节点号:</div><input type="text" name="My_Node4" class="a" id="My_Node4" value=""><br>		
+					<div id="d">单价版本号:</div><input type="text" name="Pri_Ver4" class="a" id="Pri_Ver4" value=""><br>
+					<div id="d">单价:</div><input type="text" name="price4" class="a" id="price4" value=""><br>				
+					<div id="d">油品代码:</div><input type="text" name="oilcode4" class="a" id="oilcode4" value=""><br>
+					<div id="d">串口号:</div>
+						<select name="Uart_NO4" id="Uart_NO4">        <!--下拉列表框-->
+								<option value="/dev/ttyO1">/dev/ttyO1</option>
+								<option value="/dev/ttyO2">/dev/ttyO2</option>
+								<option value="/dev/ttyO3">/dev/ttyO3</option>
+								<option value="/dev/ttyO4" selected="selected">/dev/ttyO4</option>
+						</select>
+					<!--input type="text" name="Uart_NO4" class="a"  value=""--><br>				
+					
+					<div id="d">波特率:</div>
+						<select name="Uart_Speed4" id="Uart_Speed4">        <!--下拉列表框-->
+								<option value="9600" >9600</option>
+								<option value="19200">19200</option>
+								<option value="38400" selected="selected">38400</option>
+								<option value="115200">115200</option>
+						</select>
+					<!--input type="text" name="Uart_Speed4" class="a"  value=""--><br>
+					<div id="d">数据位:</div>
+						<select name="Uart_Data_Bits4" id="Uart_Data_Bits4">        <!--下拉列表框-->							
+								<option value="7">7</option>
+								<option value="8" selected="selected">8</option>							
+						</select>
+					<!--input type="text" name="Uart_Data_Bits4" class="a"  value=""--><br>
+					<div id="d">停止位:</div>
+						<select name="Uart_Stop_Bits4" id="Uart_Stop_Bits4">        <!--下拉列表框-->							
+								<option value="1" selected="selected">1</option>
+								<option value="2">2</option>							
+						</select>
+					<!--input type="text" name="Uart_Stop_Bits4" class="a"  value=""--><br>				
+					<div id="d">校验位:</div>
+						<select name="Uart_Parity4" id="Uart_Parity4">        <!--下拉列表框-->
+								<option value="N" selected="selected">无校验-None</option>
+								<option value="O">奇校验-Odd</option>
+								<option value="E">偶校验-Even</option>							
+						</select>
+					<!--input type="text" name="Uart_Parity4" class="a"  value=""--><br><br>
+				</label>
+			</div>		
+		<div id="footer">
+			<!--button type="button" onclick="myFunction()">读取</button--> 
+			<div id="button_read">
+				<button type="button" style="background:#1E90FF;font-size:16px" onclick="window.location.href='./cgi-bin/readinifile.py'">读取</button>											
+			</div>
+			<div id="button_submit">
+				<input type="submit" style="background:#1E90FF;font-size:16px" value="提交" /> 
+			</div>
+		</div>		
+	</form>   
+</body>
+</html>
