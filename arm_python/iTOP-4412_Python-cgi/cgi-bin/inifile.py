@@ -50,7 +50,7 @@ def updateItemfromhtml(section,refsection):
 		formitem=item[0]+end 
 		if formitem in form:
 			value = form[formitem].value	
-			oldvalue = '-1'	
+			oldvalue = '-1'				
 			if value:
 				if conf.has_option(section,item[0]):
 					oldvalue=conf.get(section,item[0])
@@ -71,7 +71,7 @@ def updateOrDeleteGuninfo234(section):
 		if section not in conf.sections():
 			conf.add_section(section)
 			print("Add"+debug%(section)+"SECTION!<br>")
-		updateItemfromhtml(section,"Gun_Info1")				
+			updateItemfromhtml(section,"Gun_Info1")				
 	elif section in conf.sections():
 		conf.remove_section(section)
 		print(debug%(section)+"delete all!<br>")

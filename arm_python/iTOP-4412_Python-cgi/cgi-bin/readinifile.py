@@ -44,7 +44,7 @@ readinihtml='''
 		}
 		*/
 		#footer {
-			width: 76%%;
+			width: 79%%;
 			height:100px;   /* footer的高度一定要是固定值*/ 
 			text-align:right;	
 			position:relative;
@@ -62,7 +62,7 @@ readinihtml='''
 		}
     </style>
 </head>
-<body>
+<body onload="checkboxOnclick()">
 	<!--script type="text/javascript" src="jquery.js"></script-->  
     <script type="text/javascript"> 
 	function myFunction(){
@@ -90,20 +90,80 @@ readinihtml='''
 	function checkForm(){/*submit时被调用，没选中的CheckBox则让其失效*/
 		if(document.getElementById("Gun_Info2").checked==true){			
 			document.getElementById("Gun_Info2").disabled=false;
+			document.getElementById("Gun_num2").disabled=false;
+			document.getElementById("My_Node2").disabled=false;
+			document.getElementById("Pri_Ver2").disabled=false;
+			document.getElementById("price2").disabled=false;
+			document.getElementById("oilcode2").disabled=false;
+			document.getElementById("Uart_NO2").disabled=false;
+			document.getElementById("Uart_Speed2").disabled=false;
+			document.getElementById("Uart_Data_Bits2").disabled=false;
+			document.getElementById("Uart_Stop_Bits2").disabled=false;
+			document.getElementById("Uart_Parity2").disabled=false;			
 		}else{			
 			document.getElementById("Gun_Info2").disabled=true;
+			document.getElementById("Gun_num2").disabled=true;
+			document.getElementById("My_Node2").disabled=true;
+			document.getElementById("Pri_Ver2").disabled=true;
+			document.getElementById("price2").disabled=true;
+			document.getElementById("oilcode2").disabled=true;
+			document.getElementById("Uart_NO2").disabled=true;
+			document.getElementById("Uart_Speed2").disabled=true;
+			document.getElementById("Uart_Data_Bits2").disabled=true;
+			document.getElementById("Uart_Stop_Bits2").disabled=true;
+			document.getElementById("Uart_Parity2").disabled=true;	
 		}	
 	
 		if(document.getElementById("Gun_Info3").checked==true){			
 			document.getElementById("Gun_Info3").disabled=false;
+			document.getElementById("Gun_num3").disabled=false;
+			document.getElementById("My_Node3").disabled=false;
+			document.getElementById("Pri_Ver3").disabled=false;
+			document.getElementById("price3").disabled=false;
+			document.getElementById("oilcode3").disabled=false;
+			document.getElementById("Uart_NO3").disabled=false;
+			document.getElementById("Uart_Speed3").disabled=false;
+			document.getElementById("Uart_Data_Bits3").disabled=false;
+			document.getElementById("Uart_Stop_Bits3").disabled=false;
+			document.getElementById("Uart_Parity3").disabled=false;	
 		}else{			
 			document.getElementById("Gun_Info3").disabled=true;
+			document.getElementById("Gun_num3").disabled=true;
+			document.getElementById("My_Node3").disabled=true;
+			document.getElementById("Pri_Ver3").disabled=true;
+			document.getElementById("price3").disabled=true;
+			document.getElementById("oilcode3").disabled=true;
+			document.getElementById("Uart_NO3").disabled=true;
+			document.getElementById("Uart_Speed3").disabled=true;
+			document.getElementById("Uart_Data_Bits3").disabled=true;
+			document.getElementById("Uart_Stop_Bits3").disabled=true;
+			document.getElementById("Uart_Parity3").disabled=true;	
 		}
 	
 		if(document.getElementById("Gun_Info4").checked==true){			
 			document.getElementById("Gun_Info4").disabled=false;
+			document.getElementById("Gun_num4").disabled=false;
+			document.getElementById("My_Node4").disabled=false;
+			document.getElementById("Pri_Ver4").disabled=false;
+			document.getElementById("price4").disabled=false;
+			document.getElementById("oilcode4").disabled=false;
+			document.getElementById("Uart_NO4").disabled=false;
+			document.getElementById("Uart_Speed4").disabled=false;
+			document.getElementById("Uart_Data_Bits4").disabled=false;
+			document.getElementById("Uart_Stop_Bits4").disabled=false;
+			document.getElementById("Uart_Parity4").disabled=false;	
 		}else{			
 			document.getElementById("Gun_Info4").disabled=true;
+			document.getElementById("Gun_num4").disabled=true;
+			document.getElementById("My_Node4").disabled=true;
+			document.getElementById("Pri_Ver4").disabled=true;
+			document.getElementById("price4").disabled=true;
+			document.getElementById("oilcode4").disabled=true;
+			document.getElementById("Uart_NO4").disabled=true;
+			document.getElementById("Uart_Speed4").disabled=true;
+			document.getElementById("Uart_Data_Bits4").disabled=true;
+			document.getElementById("Uart_Stop_Bits4").disabled=true;
+			document.getElementById("Uart_Parity4").disabled=true;	
 		}
 	}
 	</script>
@@ -150,48 +210,48 @@ readinihtml='''
 			<div id="b">
 			<b><input type="checkbox" name="Gun_Info2" value="[Gun_Info2]" id="Gun_Info2" onclick="checkboxOnclick()" %s/>[Gun_Info2]设置:</b><br>
 				<label id="Gun_Info2_display" style="display:block;">
-					<div id="e">枪号:</div><input type="text" name="Gun_num2" class="a" id="" value="%s"><br>
-					<div id="e">节点号:</div><input type="text" name="My_Node2" class="a" id="" value="%s"><br>		
-					<div id="e">单价版本号:</div><input type="text" name="Pri_Ver2" class="a"  value="%s"><br>
-					<div id="e">单价:</div><input type="text" name="price2" class="a"  value="%s"><br>				
-					<div id="e">油品代码:</div><input type="text" name="oilcode2" class="a"  value="%s"><br>
-					<div id="e">串口号:</div><input type="text" name="Uart_NO2" class="a"  value="%s"><br>									
-					<div id="e">波特率:</div><input type="text" name="Uart_Speed2" class="a"  value="%s"><br>
-					<div id="e">数据位:</div><input type="text" name="Uart_Data_Bits2" class="a"  value="%s"><br>
-					<div id="e">停止位:</div><input type="text" name="Uart_Stop_Bits2" class="a"  value="%s"><br>				
-					<div id="e">校验位:</div><input type="text" name="Uart_Parity2" class="a"  value="%s"><br><br>
+					<div id="c">枪号:</div><input type="text" name="Gun_num2" class="a" id="Gun_num2" value="%s"><br>
+					<div id="c">节点号:</div><input type="text" name="My_Node2" class="a" id="My_Node2" value="%s"><br>		
+					<div id="c">单价版本号:</div><input type="text" name="Pri_Ver2" class="a" id="Pri_Ver2"  value="%s"><br>
+					<div id="c">单价:</div><input type="text" name="price2" class="a" id="price2"  value="%s"><br>				
+					<div id="c">油品代码:</div><input type="text" name="oilcode2" class="a" id="oilcode2" value="%s"><br>
+					<div id="c">串口号:</div><input type="text" name="Uart_NO2" class="a" id="Uart_NO2" value="%s"><br>									
+					<div id="c">波特率:</div><input type="text" name="Uart_Speed2" class="a" id="Uart_Speed2" value="%s"><br>
+					<div id="c">数据位:</div><input type="text" name="Uart_Data_Bits2" class="a" id="Uart_Data_Bits2" value="%s"><br>
+					<div id="c">停止位:</div><input type="text" name="Uart_Stop_Bits2" class="a" id="Uart_Stop_Bits2" value="%s"><br>				
+					<div id="c">校验位:</div><input type="text" name="Uart_Parity2" class="a" id="Uart_Parity2" value="%s"><br><br>
 				</label>
 			</div>
 		
 			<div id="b">
 			<b><input type="checkbox" name="Gun_Info3" value="[Gun_Info3]" id="Gun_Info3" onclick="checkboxOnclick()" %s/>[Gun_Info3]设置:</b><br>
 				<label id="Gun_Info3_display" style="display:block;">
-					<div id="c">枪号:</div><input type="text" name="Gun_num3" class="a" id="" value="%s"><br>
-					<div id="c">节点号:</div><input type="text" name="My_Node3" class="a" id="" value="%s"><br>		
-					<div id="c">单价版本号:</div><input type="text" name="Pri_Ver3" class="a"  value="%s"><br>
-					<div id="c">单价:</div><input type="text" name="price3" class="a"  value="%s"><br>				
-					<div id="c">油品代码:</div><input type="text" name="oilcode3" class="a"  value="%s"><br>
-					<div id="c">串口号:</div><input type="text" name="Uart_NO3" class="a"  value="%s"><br>				
-					<div id="c">波特率:</div><input type="text" name="Uart_Speed3" class="a"  value="%s"><br>
-					<div id="c">数据位:</div><input type="text" name="Uart_Data_Bits3" class="a"  value="%s"><br>
-					<div id="c">停止位:</div><input type="text" name="Uart_Stop_Bits3" class="a"  value="%s"><br>				
-					<div id="c">校验位:</div><input type="text" name="Uart_Parity3" class="a"  value="%s"><br><br>
+					<div id="c">枪号:</div><input type="text" name="Gun_num3" class="a" id="Gun_num3" value="%s"><br>
+					<div id="c">节点号:</div><input type="text" name="My_Node3" class="a" id="My_Node3" value="%s"><br>		
+					<div id="c">单价版本号:</div><input type="text" name="Pri_Ver3" class="a" id="Pri_Ver3" value="%s"><br>
+					<div id="c">单价:</div><input type="text" name="price3" class="a" id="price3" value="%s"><br>				
+					<div id="c">油品代码:</div><input type="text" name="oilcode3" class="a" id="oilcode3"  value="%s"><br>
+					<div id="c">串口号:</div><input type="text" name="Uart_NO3" class="a" id="Uart_NO3" value="%s"><br>									
+					<div id="c">波特率:</div><input type="text" name="Uart_Speed3" class="a" id="Uart_Speed3" value="%s"><br>
+					<div id="c">数据位:</div><input type="text" name="Uart_Data_Bits3" class="a" id="Uart_Data_Bits3" value="%s"><br>
+					<div id="c">停止位:</div><input type="text" name="Uart_Stop_Bits3" class="a" id="Uart_Stop_Bits3" value="%s"><br>				
+					<div id="c">校验位:</div><input type="text" name="Uart_Parity3" class="a" id="Uart_Parity3" value="%s"><br><br>
 				</label>
 			</div>
 		
 			<div id="b">
 			<b><input type="checkbox" name="Gun_Info4" value="[Gun_Info4]" id="Gun_Info4" onclick="checkboxOnclick()" %s/>[Gun_Info4]设置:</b><br>
 				<label id="Gun_Info4_display" style="display:block;">
-					<div id="d">枪号:</div><input type="text" name="Gun_num4" class="a" id="" value="%s"><br>
-					<div id="d">节点号:</div><input type="text" name="My_Node4" class="a" id="" value="%s"><br>		
-					<div id="d">单价版本号:</div><input type="text" name="Pri_Ver4" class="a"  value="%s"><br>
-					<div id="d">单价:</div><input type="text" name="price4" class="a"  value="%s"><br>				
-					<div id="d">油品代码:</div><input type="text" name="oilcode4" class="a"  value="%s"><br>
-					<div id="d">串口号:</div><input type="text" name="Uart_NO4" class="a"  value="%s"><br>									
-					<div id="d">波特率:</div><input type="text" name="Uart_Speed4" class="a"  value="%s"><br>
-					<div id="d">数据位:</div><input type="text" name="Uart_Data_Bits4" class="a"  value="%s"><br>
-					<div id="d">停止位:</div><input type="text" name="Uart_Stop_Bits4" class="a"  value="%s"><br>				
-					<div id="d">校验位:</div><input type="text" name="Uart_Parity4" class="a"  value="%s"><br><br>
+					<div id="d">枪号:</div><input type="text" name="Gun_num4" class="a" id="Gun_num4" value="%s"><br>
+					<div id="d">节点号:</div><input type="text" name="My_Node4" class="a" id="My_Node4" value="%s"><br>		
+					<div id="d">单价版本号:</div><input type="text" name="Pri_Ver4" class="a" id="Pri_Ver4" value="%s"><br>
+					<div id="d">单价:</div><input type="text" name="price4" class="a" id="price4" value="%s"><br>				
+					<div id="d">油品代码:</div><input type="text" name="oilcode4" class="a" id="oilcode4" value="%s"><br>
+					<div id="d">串口号:</div><input type="text" name="Uart_NO4" class="a" id="Uart_NO4" value="%s"><br>									
+					<div id="d">波特率:</div><input type="text" name="Uart_Speed4" class="a" id="Uart_Speed4" value="%s"><br>
+					<div id="d">数据位:</div><input type="text" name="Uart_Data_Bits4" class="a" id="Uart_Data_Bits4" value="%s"><br>
+					<div id="d">停止位:</div><input type="text" name="Uart_Stop_Bits4" class="a" id="Uart_Stop_Bits4" value="%s"><br>				
+					<div id="d">校验位:</div><input type="text" name="Uart_Parity4" class="a" id="Uart_Parity4" value="%s"><br><br>
 				</label>
 			</div>		
 		<div id="footer">
