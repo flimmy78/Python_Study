@@ -45,7 +45,14 @@ export PYTHONPATH=$PYTHONHOME/python3.4:$PYTHONHOME/python3.4/lib.linux-arm-3.4
 找到`#readline readline.c -lreadline -ltermcap`修改为：`readline readline.c -L/opt/python/ycxadd/readline-6.2.4.1/rl/readline-lib/shlib -lreadline -L/opt/python/ycxadd/termcap-1.3.1 -ltermcap`
 #### 8.5重新make后就新生成的`python`文件考到目标板，并将`libreadline.so.6`也拷贝到目标板，并做相应的符号链接。
 
-
+## Python For ARM 裁剪
+可以不将以下文件拷贝到目标板，主要是几个大文件夹
+```
+__pycache__  doctest.py   idlelib      sqlite3      turtle.py    wsgiref
+asyncio      ensurepip    lib2to3      test         turtledemo   xml
+curses       http         pydoc_data   tkinter      unittest     xmlrpc
+```
+最后整个arm上python占用空间只有20多兆。
 
 
 
