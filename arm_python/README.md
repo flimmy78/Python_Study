@@ -40,7 +40,14 @@ export PYTHONPATH=$PYTHONHOME/python3.4:$PYTHONHOME/python3.4/lib.linux-arm-3.4
 再做一个符号链接：`ln -s libreadline.so.6 libreadline.so`
 #### 8.3 下载`termcap`源码，再进行交叉编译
 [下载地址](https://ftp.gnu.org/gnu/termcap/)<br>
-`./configure`后直接修改修改`Makefile`就行了，so easy。
+`./configure`后直接修改修改`Makefile`就行了，so easy。<br>
+(
+若在make python时报错，like this：
+```
+termcap.a(termcap.o): relocation R_ARM_THM_MOVW_ABS_NC against `a local symbol' can not be used when making a shared object; recompile with -fPIC
+```
+需在Makefile文件中修改` CFLAGS = -g`为` CFLAGS = -g -fPIC`
+)
 #### 8.4、修改Setup文件`vi Modules/Setup`
 找到`#readline readline.c -lreadline -ltermcap`修改为：`readline readline.c -L/opt/python/ycxadd/readline-6.2.4.1/rl/readline-lib/shlib -lreadline -L/opt/python/ycxadd/termcap-1.3.1 -ltermcap`
 #### 8.5重新make后就新生成的`python`文件考到目标板，并将`libreadline.so.6`也拷贝到目标板，并做相应的符号链接。
