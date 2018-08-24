@@ -54,6 +54,25 @@ curses       http         pydoc_data   tkinter      unittest     xmlrpc
 ```
 最后整个arm上python占用空间只有20多兆。
 
+## ARM安装第三方包
+1、首先下载源码包，[地址1](https://pypi.org/simple/macholib/)，[地址2](https://pypi.org/)；<br>
+2、解压后执行`python setup.py install`；<br>
+3、若提示需要其他依赖包，重复步骤1和步骤2，直到成功。<br>
+
+## ARM安装PyInstaller
+##### 1、首先`Building the Bootloader`，[参考](https://pyinstaller.readthedocs.io/en/v3.3.1/bootloader-building.html)；<br>
+* 将linux机器上的`gcc`，`strip`等命令修改为交叉编译工具所使用的；<br>
+* 修改`wscript`文件，屏蔽`#ctx.env.append_value('CFLAGS', '-m32')`和`#ctx.env.append_value('LINKFLAGS', '-m32')`，有两处；
+* 执行`python ./waf all -v`，参数`-v`显示详细信息，可以去掉，生成`run`和`run_d`；
+##### 2、拷贝整个文件夹到ARM板，再在ARM板上按照安装第三方包一样安装`PyInstaller`
+* 修改`setup.py`，主要查看相关路径，需要拷贝BootLoader`run`文件到指定目录，参考：
+```
+exe = os.path.join(HOMEPATH, 'PyInstaller', 'bootloader', PLATFORM, exe)
+print("============="+HOMEPATH+PLATFORM)
+print(exe)
+```
+##### 3、拷贝完成后，再次安装，期间可能根据具体情况，需要安装好几个第三方包
+
 
 
 
